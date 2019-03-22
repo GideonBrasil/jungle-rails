@@ -8,9 +8,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      # Tell the UserMailer to send a welcome email after save
-      
-      UserMailer.welcome_email(@user.email).deliver_now
  
       #send user to root after loging in
       redirect_to :root
