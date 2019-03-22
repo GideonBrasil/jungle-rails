@@ -4,6 +4,20 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if cart.empty? %>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+      <div class="alert alert-danger">
+        <h3>
+          Your cart is currently empty.
+        </h3>
+        <h3>
+          Use this link to buy some products before checking out.
+        </h3>
+    <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+  
+  <% else %>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +62,7 @@
       <% end %>
     </div>
   </div>
+
+  <% end %>
 
 </section>
