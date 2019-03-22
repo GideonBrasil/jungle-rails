@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
       # Tell the UserMailer to send a welcome email after save
-      UserMailer.welcome_email(current_user).deliver_now
+      UserMailer.welcome_email(current_user, order).deliver_now
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
