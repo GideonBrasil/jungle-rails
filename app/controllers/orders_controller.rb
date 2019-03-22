@@ -3,12 +3,13 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @line_items = @order.line_items
+    puts "THIS IS MY ORDER #{@order}"
   end
 
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-
+    puts "THIS IS MY ORDER #{@order}"
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
