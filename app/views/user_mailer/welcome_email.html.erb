@@ -9,19 +9,17 @@
     </h1>
     <p>
     You have successfully placed an order with jungle.ca.
-    <br>
-      Your order includes: <%= @order.line_items.each do |line_item| %>
-        <ul>
-          <li>
-            <%= render 'item', item: line_item %>
-          <% end %>
-          </li>
-        </ul>
     </p>
+      Your order includes: <% @order.line_items.each do |line_item| %>
+      <ul>
+          <%= render 'item', item: line_item %>
+      </ul>
+      <% end %>
     <p>
     Order total: <%= @order.total_cents / 100.00 %>
     </p>
-    <p>Thanks for shopping at jungle.ca. 
+    <p>Thanks for shopping at jungle.ca.
+    <br> 
     Have a great day!</p>
   </body>
 </html>
