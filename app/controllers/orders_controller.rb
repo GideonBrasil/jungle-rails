@@ -8,12 +8,11 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-    
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
       # Tell the UserMailer to send a welcome email after save
-      UserMailer.welcome_email(@user).deliver_now
+      UserMailer.welcome_email(current_user).deliver_now
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
@@ -40,7 +39,7 @@ class OrdersController < ApplicationController
 
   def create_order(stripe_charge)
     order = Order.new(
-      email: params[:stripeEmail],
+      email: current_user ? current_user.email : params[:stripeEmail],
       total_cents: cart_subtotal_cents,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )

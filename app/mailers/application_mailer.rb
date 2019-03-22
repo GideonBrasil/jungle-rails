@@ -7,6 +7,6 @@ class ApplicationMailer < ActionMailer::Base
     @user = user
     @url  = 'http://example.com/login'
     
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site') if @user
+    mail(to: @user.email, subject: 'Welcome to My Awesome Site') if user
   end
 end
