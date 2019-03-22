@@ -44,12 +44,21 @@
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
         </li>
-
         <% if current_user %>
-          Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout' %>
+        <li style="padding: 15px 0px 15px 0px">
+          Signed in as <%= current_user.email %> 
+        </li>
+        <li>
+          <%= link_to 'Logout', session_path(current_user), method: :delete %>
+        </li>
         <% else %>
-          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+        <li>
+          <%= link_to 'Login', [:new, :session] %> 
+        </li> 
+        <li>
+          <%= link_to 'Signup', [:new, :user] %>
         <% end %>
+        </li>
 
       </ul>
     </div>
