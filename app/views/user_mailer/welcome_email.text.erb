@@ -3,7 +3,13 @@ Thanks for buying from Jungle <%= @user.first_name %> <%= @user.last_name %>
  
 You have successfully placed an order with jungle.ca.
 
-Your orders were
+You have successfully placed an order with jungle.ca.
+
+Your order includes: <% @order.line_items.each do |line_item| %>
+
+<%= render 'item', item: line_item %>
+
+<% end %>
 
 Order total: <%= @order.total_cents / 100.00 %>
  
