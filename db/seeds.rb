@@ -144,6 +144,13 @@ mazli = User.create! ({
   password_digest: 'wofwof'
 })
 
+sarren = User.create! ({
+  first_name: 'Darren',
+  last_name: 'Picard',
+  email: 'darren@gmail.com',
+  password_digest: 'hello1'
+})
+
 # REVIEWS
 
 
