@@ -35,8 +35,8 @@ puts "Re-creating Products ..."
 
 # Remove old products, reviews and users from db
 Product.destroy_all
-Review.desetroy_all
-User.desetroy_all
+Review.destroy_all
+User.destroy_all
 
 cat1.products.create!({
   name:  'Men\'s Classy shirt',
