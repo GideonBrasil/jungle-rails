@@ -153,6 +153,18 @@ sarren = User.create! ({
 
 # REVIEWS
 
+prod1 = Product.find_or_create_by! name: 'Hotdog Slicer'
 
+prod1.reviews.create! ({
+  user_id: 1,
+  description: 'Wof Wof! Mom lets me buy these =) ',
+  rating: 5
+})
+
+prod1.reviews.create! ({
+  user_id: 2,
+  description: 'Mazli buy all of these and they are never in stock...',
+  rating: 2
+})
 
 puts "DONE!"
