@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20190322222242) do
     t.integer  "user_id"
     t.text     "description"
     t.integer  "rating"
-    t.integer  "new_rating"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -81,4 +80,6 @@ ActiveRecord::Schema.define(version: 20190322222242) do
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "users"
 end
