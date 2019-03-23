@@ -163,7 +163,7 @@ prod1.reviews.create!({
 
 prod1.reviews.create!({
   user_id: 2,
-  description: 'Mazli buy all of these and they are never in stock...',
+  description: 'My previous one broke. Now I can"t buy any, because Mazli always buys all the hotdog slicers. They are never in stock...',
   rating: 2
 })
 

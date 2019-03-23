@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
 
-    belongs_to :products
-    belongs_to :users
+    belongs_to :product
+    belongs_to :user
 
     # validates :user_id, presence: { message: "Must sign in to review a product" }
     # validates :user_id, uniqueness: { scope: :product_id, message: "You can only rate a product once" }
