@@ -14,6 +14,12 @@
 
       <div class="col-sm-8">
         <dl class="dl-horizontal">
+          <dt>Overall Rating</dt>
+          <% if @reviewAvg === 0 %> 
+          <dd>No rating yet</dd>
+          <% else %>
+          <dd><Strong><%= @reviewAvg %> out of 5 -</strong> based on the opinion of <%= @reviewPeople %> peaple</dd>
+          <% end %>
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
           <dt>Description</dt>
@@ -55,7 +61,7 @@
             <dt>Description</dt>
             <dd><%= review.description %></dd>
             <dt>Rating</dt>
-            <dd><%= review.rating %></dd>
+            <dd><%= review.rating %>/5</dd>
             <dt>Review date: </dt>
             <dd><%= review.created_at %></dd>
             <% if current_user && current_user.id === review.user_id %>

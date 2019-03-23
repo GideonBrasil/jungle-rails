@@ -5,6 +5,12 @@
       <h4><%= product.name %></h4>
     <% end %>
   </header>
+  <% if Review.where(product_id: product.id).average(:rating).to_i === 0 %> 
+    <p><strong>No rating yet</strong></p>
+  <% else %>
+    <p><Strong><%= Review.where(product_id: product.id).average(:rating).to_i.round 1 %> out of 5 -</strong> 
+    <%= Review.where(product_id: product.id).sum(:rating).to_i %> customer reviews</p>
+  <% end %>
   <p class="description">
     <%= product.description %>
   </p>
