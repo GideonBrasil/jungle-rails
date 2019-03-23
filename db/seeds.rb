@@ -141,14 +141,14 @@ mazli = User.create!({
   first_name: 'Mazliii',
   last_name: 'Barton',
   email: 'thedog@gmail.com',
-  password_digest: 'wofwof'
+  password_digest: '$2a$10$ajzXphLZEtSApdZGx6Id7eAQD.scULMBefqpHBjmgjiOxPI.QiwFW'
 })
 
 darren = User.create!({
   first_name: 'Darren',
   last_name: 'Picard',
   email: 'darren@gmail.com',
-  password_digest: 'hello1'
+  password_digest: '$2a$10$z0CZK.RttVRkDRQZn46Q/ulTaWAWWf96O8V/cVB6CRwQsyg9yHo6q'
 })
 
 # REVIEWS
