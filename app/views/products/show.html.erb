@@ -26,6 +26,7 @@
 
         <div class="col-sm-8">
           <dl class="dl-horizontal">
+          <% if current_user %>
           <h3>Write a product review</h3>
           <%= form_for [@product, @review] do |form| %>
             <div class="form-group">
@@ -45,10 +46,9 @@
             <% end %>
           </dl>
         </div>
-
+        <% end %>
         <div class="col-sm-8">
           <dl class="dl-horizontal">
-          
           <% @product.reviews.reverse_each do |review| %>
             <dt>Review for</dt>
             <dd><%= review.user_id %></dd>
@@ -56,9 +56,11 @@
             <dd><%= review.description %></dd>
             <dt>Rating</dt>
             <dd><%= review.rating %></dd>
+            <% if current_user && current_user.id === review.user_id %>
             <td>
               <%= link_to fa_icon('trash', text: 'Delete'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
             </td>
+            <% end %>
             <% end %>
           </dl>
         </div>
