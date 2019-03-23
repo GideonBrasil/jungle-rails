@@ -29,51 +29,56 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
-
-        <div class="col-sm-8">
-          <dl class="dl-horizontal">
-          <% if current_user %>
-          <h3>Write a product review</h3>
-          <%= form_for [@product, @review] do |form| %>
-            <div class="form-group">
-              <%= form.hidden_field :product_id, value: @product.id %>
-            </div>
-            <div class="form-group">
-              <%= form.label :rating, 'Overall rating' %>
-              <%= form.select :rating, options_for_select([1, 2, 3, 4, 5]), class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= form.label :description, 'Write your review' %>
-              <%= form.text_area :description, class: 'form-control',
-              placeholder: 'What did you like or dislike? What did you use this product for?' %>
-            </div>
-
-            <%= form.submit 'Submit', class: 'btn btn-primary' %>
-            <% end %>
-          </dl>
-        </div>
-        <% end %>
-        <div class="col-sm-8">
-          <dl class="dl-horizontal">
-          <% @product.reviews.reverse_each do |review| %>
-            <dt>Reviewer</dt>
-            <dd><%= review.user.first_name %></dd>
-            <dt>Description</dt>
-            <dd><%= review.description %></dd>
-            <dt>Rating</dt>
-            <dd><%= review.rating %>/5</dd>
-            <dt>Review date: </dt>
-            <dd><%= review.created_at %></dd>
-            <% if current_user && current_user.id === review.user_id %>
-            <td>
-              <%= link_to fa_icon('trash', text: 'Delete'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
-            </td>
-            <% end %>
-            <% end %>
-          </dl>
-        </div>
-    </div>
-
+      </div>
   </article>
+
+  <div class="create-review">
+    <dl class="dl-horizontal">
+      <% if current_user %>
+        <h3>Write a product review</h3>
+        <hr>
+      <%= form_for [@product, @review] do |form| %>
+        <div class="form-group">
+          <%= form.hidden_field :product_id, value: @product.id %>
+        </div>
+        <div class="form-group">
+          <%= form.label :rating, 'Overall rating' %>
+          <%= form.select :rating, options_for_select([1, 2, 3, 4, 5]), class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :description, 'Write your review' %>
+          <%= form.text_area :description, class: 'form-control',
+              placeholder: 'What did you like or dislike? What did you use this product for?' %>
+        </div>
+
+        <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    </dl>
+  </div>
+  <% end %>
+  <% end %>
+    
+  <div class="reviews">
+    <dl class="dl-horizontal">
+    <h4>Customer reviews</h4>
+    <hr>
+      <% @product.reviews.reverse_each do |review| %>
+        <dt>Name</dt>
+          <dd><%= review.user.first_name %></dd>
+        <dt>Description</dt>
+          <dd><%= review.description %></dd>
+        <dt>Rating</dt>
+          <dd><%= review.rating %>/5</dd>
+        <dt>Review date: </dt>
+          <dd><%= review.created_at %></dd>
+        <% if current_user && current_user.id === review.user_id %>
+          <dd>
+            <%= link_to fa_icon('trash', text: 'Delete'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+          </dd>
+          <% end %>
+          <br>
+          <hr>
+      <% end %>
+    </dl>
+  </div>
 
 </section>

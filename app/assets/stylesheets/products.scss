@@ -77,6 +77,23 @@ main section.categories-show {
   }
 }
 
+hr {
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-start: auto;
+  margin-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+}
+
+.create-review {
+  /* border-block-end: unset; */
+  border-bottom: solid lightslategray;
+  padding: 0px 0px 8px 0px;
+}
+
 main section.products-show {
 
   .product-detail {
