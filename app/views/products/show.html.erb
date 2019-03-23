@@ -50,12 +50,14 @@
         <div class="col-sm-8">
           <dl class="dl-horizontal">
           <% @product.reviews.reverse_each do |review| %>
-            <dt>Review for</dt>
-            <dd><%= review.user_id %></dd>
+            <dt>Reviewer</dt>
+            <dd><%= review.user.first_name %></dd>
             <dt>Description</dt>
             <dd><%= review.description %></dd>
             <dt>Rating</dt>
             <dd><%= review.rating %></dd>
+            <dt>Review date: </dt>
+            <dd><%= review.created_at %></dd>
             <% if current_user && current_user.id === review.user_id %>
             <td>
               <%= link_to fa_icon('trash', text: 'Delete'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
