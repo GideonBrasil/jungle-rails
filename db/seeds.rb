@@ -33,7 +33,10 @@ cat3 = Category.find_or_create_by! name: 'Furniture'
 
 puts "Re-creating Products ..."
 
+# Remove old products, reviews and users from db
 Product.destroy_all
+Review.desetroy_all
+User.desetroy_all
 
 cat1.products.create!({
   name:  'Men\'s Classy shirt',
@@ -131,6 +134,18 @@ cat3.products.create!({
   quantity: 0,
   price: 2_483.75
 })
+
+# USERS
+
+mazli = User.create! ({
+  first_name: 'Mazliii',
+  last_name: 'Barton',
+  email: 'thedog@gmail.com',
+  password_digest: 'wofwof'
+})
+
+# REVIEWS
+
 
 
 puts "DONE!"
