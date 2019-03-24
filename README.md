@@ -2,6 +2,45 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Sneak Peak
+
+!["Jungle App"](https://github.com/GideonBrasil/jungle-rails/blob/master/docs/main_jungle.gif?raw=true)
+
+<!-- <img src="https://github.com/GideonBrasil/jungle-rails/blob/master/docs/main_jungle.gif?raw=true" width="800" height="800" /> -->
+
+- Lots of interesting products to buy on jungle.
+
+---
+
+!["Jungle App"](https://github.com/GideonBrasil/jungle-rails/blob/master/docs/login_out_jungle.gif?raw=true)
+
+<!-- <img src="https://github.com/GideonBrasil/jungle-rails/blob/master/docs/login_out_jungle.gif?raw=true" width="800" height="800" /> -->
+
+- Jungle sign up and logout.
+
+---
+
+!["Jungle App"](https://github.com/GideonBrasil/jungle-rails/blob/master/docs/empty_cart_jungle.gif?raw=true)
+
+<!-- <img src="https://github.com/GideonBrasil/jungle-rails/blob/master/docs/empty_cart_jungle.gif?raw=true" width="800" height="800" /> -->
+
+- You need to put items in your cart first!
+
+---
+
+!["Jungle App"](https://github.com/GideonBrasil/jungle-rails/blob/master/docs/product_details_jungle.gif?raw=true)
+
+<!-- <img src="https://github.com/GideonBrasil/jungle-rails/blob/master/docs/product_details_jungle.gif?raw=true" width="800" height="800" /> -->
+
+- Click on a products details to read customer reviews.
+
+---
+
+!["Jungle App"](https://github.com/GideonBrasil/jungle-rails/blob/master/docs/new_review_jungle.gif?raw=true)
+
+<!-- <img src="https://github.com/GideonBrasil/jungle-rails/blob/master/docs/new_review_jungle.gif?raw=true" width="800" height="800" /> -->
+
+- Sign in to write reviews and rate products.
 
 ## Setup
 
@@ -23,6 +62,18 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Dependencies
 
-* Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
-* PostgreSQL 9.x
-* Stripe
+- Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+- PostgreSQL 9.x
+- Stripe
+
+## Author
+
+**[GideonBrasil](https://github.com/GideonBrasil)** - _New features, Updating and debugging_
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Lighthouse Labs
