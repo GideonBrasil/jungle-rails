@@ -5,11 +5,9 @@ class ReviewsController < ApplicationController
         
         @review = Review.new(review_params)
         @review.user_id = current_user.id
-
-        if @review.save
-            @product = Product.find params[:product_id]
-            redirect_to @product, notice: 'Review created!'
-        end
+        @review.save
+        @product = Product.find params[:product_id]
+        redirect_to @product, notice: 'Review created!'
 
     end
 
