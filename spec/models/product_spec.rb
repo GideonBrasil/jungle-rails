@@ -13,7 +13,12 @@ RSpec.describe Product, type: :model do
     end
 
 
-    it 'is not valid without a name' 
+    it 'is not valid without a name' do
+      @product.name = nil
+      @product.save
+      # expect(@product.errors.messages).to include name: ["can't be blank"] 
+      expect(@product.errors.full_messages).to include "Name can't be blank"
+    end
 
     it 'is not valid without a price'
     it 'is not valid without a quantity'
