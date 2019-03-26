@@ -69,7 +69,33 @@ RSpec.describe User, type: :model do
       subject.password = 'wof'
       expect(subject.save).to be_falsey
     end
+
+  end
+
+  describe 'Validations' do
     
+  end
+
+  describe '.authenticate_with_credentials' do
+    
+    it 'will not save to db without authenticate_with_credentials password' do
+      @user = subject.save
+      @user_login = User.authenticate_with_credentials('mazli@gmail.com', 'wofwof')
+      expect(@user_login).to be_truthy
+    end
+
+    it 'will not save to db without authenticate_with_credentials incorrect password' do
+      @user = subject.save
+      @user_login = User.authenticate_with_credentials('mazli@gmail.com', 'w')
+      expect(@user_login).to be_falsey
+    end
+
+    it 'will not save to db without authenticate_with_credentials incorrect email' do
+      @user = subject.save
+      @user_login = User.authenticate_with_credentials('li@gmail.com', 'wofwof')
+      expect(@user_login).to be_falsey
+    end
+
   end
 
 end
