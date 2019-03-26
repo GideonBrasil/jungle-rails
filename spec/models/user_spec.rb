@@ -17,11 +17,6 @@ RSpec.describe User, type: :model do
                     last_name: 'Barton',
         password_confirmation: 'wofwof')
 
-    @user2 = User.new(password: 'wof',
-                    email: 'MAZLI@gmail.com',
-                first_name: 'Mazli',
-                last_name: 'Barton',
-    password_confirmation: 'wof')
   end
   
   describe 'Validations' do
@@ -71,8 +66,10 @@ RSpec.describe User, type: :model do
     end
 
     it "must not save if password doesn't have minimum length" do
-      length: { minimum: 6 }
-
+      subject.password = 'wof'
+      expect(subject.save).to be_falsey
+    end
+    
   end
 
 end
