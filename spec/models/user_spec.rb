@@ -16,6 +16,12 @@ RSpec.describe User, type: :model do
                     first_name: 'Mazli',
                     last_name: 'Barton',
         password_confirmation: 'wofwof')
+
+    @user2 = User.new(password: 'wof',
+                    email: 'MAZLI@gmail.com',
+                first_name: 'Mazli',
+                last_name: 'Barton',
+    password_confirmation: 'wof')
   end
   
   describe 'Validations' do
@@ -59,10 +65,13 @@ RSpec.describe User, type: :model do
     end
 
     it 'is not valid without a password_confirmation' do
-      subject.password_confirmation = nil
+      subject.password_confirmation = ""
       subject.save
-      expect(subject.errors.full_messages).to include "Password confirmation can't be blank"
+      expect(subject.errors.full_messages).to include "Password confirmation doesn't match Password"
     end
+
+    it "must not save if password doesn't have minimum length" do
+      length: { minimum: 6 }
 
   end
 
