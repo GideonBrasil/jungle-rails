@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor can navigate to show page when clicking on Product Details", type: :feature, js: true do
+RSpec.feature "User can Add product To Cart", type: :feature, js: true do
 # SETUP
 before :each do
   @category = Category.create! name: 'Apparel'
@@ -17,18 +17,18 @@ before :each do
   
   end
 
-  scenario "They see show page of a single product" do
+  scenario "They see that a product was added to cart" do
     # ACT
     visit root_path
 
     #code
-    first('.product').click_link('Details')
+    first('.product').click_link('Add')
 
     # DEBUG / VERIFY
     save_screenshot
     # Index page should have article.product
     # expect(page).to have_css 'article.product'
-    expect(page).to have_css 'article.product-detail'
+    expect(page).to have_text 'My Cart (1)'
     save_screenshot
   end
 
