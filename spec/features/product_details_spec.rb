@@ -25,11 +25,11 @@ before :each do
     first('.product').click_link('Details')
 
     # DEBUG / VERIFY
-    save_screenshot
+    # save_screenshot
     # Index page should have article.product
     # expect(page).to have_css 'article.product'
     expect(page).to have_css 'article.product-detail'
-    save_screenshot
+    # save_screenshot
   end
 
 end

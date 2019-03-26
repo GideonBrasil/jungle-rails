@@ -22,14 +22,14 @@ before :each do
     visit root_path
 
     #code
-    first('.product').click_link('Add')
+    first('.product').click_button('Add')
 
     # DEBUG / VERIFY
-    save_screenshot
+    # save_screenshot
     # Index page should have article.product
     # expect(page).to have_css 'article.product'
     expect(page).to have_text 'My Cart (1)'
-    save_screenshot
+    # save_screenshot
   end
 
 end
