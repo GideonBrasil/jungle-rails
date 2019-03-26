@@ -1,9 +1,15 @@
 require 'rails_helper'
 
-RSpec.feature "User can Add product To Cart", type: :feature, js: true do
-# SETUP
+RSpec.feature "UserLogins", type: :feature, js: true do
+  # SETUP
 before :each do
 
+  @user = User.create!(
+    name: 'Mazli',
+    email: 'mazli@gamil.com',
+    password: 'wofwof',
+    password_confirmation: 'wofwof'
+  )
   @category = Category.create! name: 'Apparel'
   10.times do |n|
     @category.products.create!(
@@ -31,5 +37,5 @@ before :each do
     expect(page).to have_text 'My Cart (1)'
     # save_screenshot
   end
-
+  
 end
