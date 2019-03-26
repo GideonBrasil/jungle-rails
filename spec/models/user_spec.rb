@@ -96,6 +96,12 @@ RSpec.describe User, type: :model do
       expect(@user_login).to be_falsey
     end
 
+    it 'will save save to db with authenticate_with_credentials whitespace before and after email' do
+      @user = subject.save
+      @user_login = User.authenticate_with_credentials('  mazli@gmail.com  ', 'wofwof')
+      expect(@user_login).to be_truthy
+    end
+
   end
 
 end
