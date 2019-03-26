@@ -46,7 +46,12 @@ RSpec.describe User, type: :model do
       expect(subject.errors.full_messages).to include "Last name can't be blank"
     end
 
-    it 'is not valid without an email'
+    it 'is not valid without an email' do
+      subject.email = nil
+      subject.save
+      expect(subject.errors.full_messages).to include "Email can't be blank"
+    end
+
     it 'is not valid without a password'
     it 'is not valid without a password_confirmation'
 
